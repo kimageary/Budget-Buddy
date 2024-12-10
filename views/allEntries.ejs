@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/output.css">
+    <script src="/js/script.js" defer></script>
+    <title>Budget Buddy - Entries</title>
+</head>
+<body class="bg-gray-200/50">
+    <!-- Header -->
+    <header class="border-b border-gray-300/75 w-screen grid grid-cols-5 mb-6 bg-green-700/70 p-3 pb-7">
+        <h1 class="w-fit inline ml-auto mr-auto text-center col-span-3 md:text-3xl text-2xl text-zinc-900 size-6 font-bold">BUDGET BUDDY</h1>
+        <!-- Nav Bar -->
+        <nav class="md:bg-transparent flex justify-between items-center w-[92%]  mx-auto">
+            <div id="nav-Links" class="md:bg-transparent bg-neutral-800 mr-auto nav-links duration-500 md:static absolute  md:min-h-fit min-h-[40vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+                <ul class="bg-transparent w-fit flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                    <a href="/" class="text-gray-50 md:text-zinc-900 align-middle w-max inline text-center  hover:text-gray-500">
+                        Home
+                    </a>
+                    <a href="expense" class="text-gray-50 md:text-zinc-900 align-middle w-max inline text-center  hover:text-gray-500">
+                       Add Expense
+                    </a>
+                    <a href="income" class="text-gray-50 md:text-zinc-900 align-middle w-max inline text-center  hover:text-gray-500">
+                       Add Income
+                    </a>
+                </ul>
+            </div>
+        </nav>
+        <div class="flex items-center gap-6 md:hidden">
+            <button onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:w-0 md:hidden">☰</button>
+        </div>
+    </header>
+    <!-- Shows all income entries -->
+    <div class="w-9/12 m-auto">
+        <p class="mb-2 text-slate-900 font-bold text-2xl">Income Tables</p>
+        <table class="table-auto w-full border-collapse border border-slate-900">
+            <tr>
+                <th class = "bg-gray-200 border border-slate-900">Date</th>
+                <th class = "bg-gray-200 border border-slate-900">Category</th>
+                <th class = "bg-gray-200 borderborder-slate-900">Amount</th>
+                <th class = "bg-gray-200 borderborder-slate-900">Description</th>
+                <th class = "bg-gray-200 border border-slate-900">Source</th>
+                <th class = "bg-gray-200 border border-slate-900">Form Submitted</th>
+            </tr>
+            <% if(income.length !== 0){ %>
+                <% for(let i = 0; i < income.length; i++){ %>
+                    <tr>
+                        <th class = "bg-gray-50/70 border  border-slate-900"><%= income[i].date %></th>
+                        <th class = "bg-gray-50/70 border  border-slate-900"><%= income[i].category %></th>
+                        <th class = "bg-gray-50/70 border  border-slate-900">$<%= income[i].amount %></th>
+                        <th class = "bg-gray-50/70 border  border-slate-900"><%= income[i].description %></th>
+                        <th class = "bg-gray-50/70 border  border-slate-900"><%= income[i].source %></th>
+                        <th class = "bg-gray-50/70 border  border-slate-900"><%= income[i].created_at %></th>
+                    </tr>
+                <% } %> 
+            <% } %>
+            
+        </table>
+    </div>
+    <!-- Shows all expense entries -->
+     <div class = "mt-3 w-9/12 m-auto container">
+        <p class="mb-2 text-slate-900 font-bold text-2xl">Expense Entries</p>
+        <table class = "table-auto w-full border-collapse border border-slate-900">
+            <tr class = "border border-slate-900 w-auto">
+                <th class = "bg-gray-200 border  border-slate-900">Date</th>
+                <th class = "bg-gray-200 border  border-slate-900">Category</th>
+                <th class = "bg-gray-200 border  border-slate-900">Amount</th>
+                <th class = "bg-gray-200 border  border-slate-900">Description</th>
+                <th class = "bg-gray-200 border  border-slate-900">Expense Type</th>
+                <th class = "bg-gray-200 border  border-slate-900">Form Submitted</th>
+            </tr>
+            <% if(expenses.length !== 0){ %>
+                <% for(let i = 0; i < expenses.length; i++){ %>
+                    <tr class = "border border-slate-900">
+                        <th class = "bg-gray-50/70 border  border-slate-900"><%= expenses[i].date %></th>
+                        <th class = "bg-gray-50/70 border  border-slate-900"><%= expenses[i].category %></th>
+                        <th class = "bg-gray-50/70 border  border-slate-900">$<%= expenses[i].amount %></th>
+                        <th class = "bg-gray-50/70 border  border-slate-900"><%= expenses[i].description %></th>
+                        <th class = "bg-gray-50/70 border  border-slate-900"><%= expenses[i].expense_type %></th>
+                        <th class = "bg-gray-50/70 border  border-slate-900"><%= expenses[i].created_at %></th>
+                    </tr>
+                <% } %> 
+            <% } %> 
+        </table>
+     </div>
+</body>
+</html>

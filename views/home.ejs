@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Buddy - Home</title>
+    <link rel="stylesheet" href="/styles/output.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+</head>
+<body class="bg-gray-200/50">
+    <!-- Header-->
+    <header class="border-b border-gray-300/75 w-screen grid grid-cols-5 mb-6 bg-green-700/70 p-3 pb-7">
+        <h1 class="w-fit inline ml-auto mr-auto text-center col-span-3 md:text-3xl text-2xl text-zinc-900 size-6 font-bold">BUDGET BUDDY</h1>
+        <!-- Navigation Bar -->
+        <nav class="md:bg-transparent flex justify-between items-center w-[92%]  mx-auto">
+            <div id="nav-Links" class="md:bg-transparent bg-neutral-800 mr-auto nav-links duration-500 md:static absolute  md:min-h-fit min-h-[40vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+                <ul class="bg-transparent w-fit flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                    <a href="expense" class="text-gray-50 md:text-zinc-900 bg-transparent align-middle w-max inline text-center  hover:text-gray-500">
+                       Add Expense
+                    </a>
+                    <a href="income" class="text-gray-50 md:text-zinc-900 align-middle w-max inline text-center  hover:text-gray-500">
+                       Add Income
+                    </a>
+                     <a href="allEntries" class="text-gray-50 md:text-zinc-900 bg-transparent align-middle w-max inline text-center  hover:text-gray-500">
+                    See All
+                    </a>
+                </ul>
+            </div>
+        </nav>
+        <div class="flex items-center gap-6 md:hidden">
+            <button onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:w-0 md:hidden">☰</button>
+        </div>
+    </header>
+    <div class="h-96 w-10/12 m-auto grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 border-solid rounded p-3">    
+        <!-- Total Income -->
+        <div class="place-items-center lg:col-span-1 md:col-span-2 border shadow-md hover:shadow-xl bg-gray-100/30 col-span-1 border-solid border-gray-400/40 m-5 p-3 rounded-lg flex flex-col justify-center">
+            <div class="bg-green-600/20 rounded-lg h-4/6 flex flex-col justify-center items-center p-4">
+                <h2 class="text-2xl pb-2">Your total income:</h2>
+                <hr class="w-full my-2 border-t-slate-950">
+                <h3 class="text-center align-middle text-green-600 md:text-4xl text-3xl font-medium">$<%= income %></h3>
+            </div>
+        </div>  
+        <!-- Account Balance -->
+        <div class="place-items-center lg:col-span-1 md:col-span-1 border shadow-md hover:shadow-xl bg-gray-100/30 col-span-1 border-solid border-gray-400/40 m-5 p-3 rounded-lg flex flex-col justify-center">
+            <div class="bg-green-600/20 rounded-lg h-4/6 flex flex-col justify-center items-center p-4">
+                <h2 class="text-center text-2xl pb-3">Total Account Balance:</h2>
+                <hr class="w-full my-2 border-t-slate-950">
+                <% let balance = income - expenses %>
+                <% if (balance < 0) { %>
+                    <p class="text-red-600 block md:text-4xl text-3xl font-medium">$<%= balance %> </p>
+                <% } else if (balance > 0) { %>
+                    <p class="block text-green-600 md:text-4xl text-3xl font-medium">$<%= balance %> </p>
+                <% } else { %>
+                    <p class="text-slate-900 block md:text-4xl text-3xl font-medium">$<%= balance %> </p>
+                <% } %>
+            </div>
+        </div>
+        <!-- Total Expenses -->
+        <div class="place-items-center lg:col-span-1 md:col-span-1 border shadow-md hover:shadow-xl bg-gray-100/30 col-span-1 p-3 border-solid border-gray-400/40 m-5 rounded-lg flex flex-col justify-center">
+            <div class="bg-green-600/20 rounded-lg h-4/6 flex flex-col justify-center items-center p-4">
+                <h2 class="text-center text-2xl pb-3">Your total expenses</h2>
+                <hr class="w-full my-2 border-t-slate-950">
+                <h3 class="pb-2 text-red-600 block md:text-4xl text-3xl font-medium">$<%= expenses %></h3>
+            </div>
+        </div>        
+    </div>
+</body>
+</html>
