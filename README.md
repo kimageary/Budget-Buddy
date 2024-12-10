@@ -28,4 +28,3 @@ Budget buddy is a simple finance tracker allows you to input different expenses 
 2. Not much is done with the data submitted besides showing it in the success page.
     - I had plans to make the web page do more with the data, such as including a pie chart that shows where you spend your money, but I ran out of time on this project.
     - I also wanted to show last month's expenses and income, but I couldn't figure out how to properly make the SQL query.
-# Budget-Buddy
