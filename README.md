@@ -16,7 +16,7 @@ Budget buddy is a simple finance tracker allows you to input different expenses 
     - Amount - to track how much income was earned
     - Source - Place to further break down where the income came from
     - Description - allows for comments/extra information tied to the income
-3. See All - congregates all the date added to both the income and expense table into two distinct tables
+3. See All - congregates all the data added to both the income and expense table into two distinct tables
 4. Success routing shows dynamically displayed content based on whether a income or expense form was submitted.
 5. Home page dynamically shows the current amount of income, expenses, and how much you have in your account based on how many income and expenses you have inputted.
 6. Each web page is suitable for small, medium, and large screen sizes
